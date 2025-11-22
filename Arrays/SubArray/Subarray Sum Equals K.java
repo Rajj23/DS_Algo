@@ -1,3 +1,5 @@
+// T.C : O(N)
+// S.C : O(N)
 class Solution {
     public int subarraySum(int[] nums, int k) {
         Map<Integer,Integer> mp = new HashMap<>();
