@@ -6,4 +6,6 @@ and prepare for technical interviews.
 
 Contents:
 - [Arrays](https://github.com/Rajj23/DS_Algo/tree/main/Arrays)
+- [Gready](https://github.com/Rajj23/DS_Algo/tree/main/Gready)
 - [Sliding Window](https://github.com/Rajj23/DS_Algo/tree/main/Sliding%20Window)
+- [String](https://github.com/Rajj23/DS_Algo/tree/main/String)
