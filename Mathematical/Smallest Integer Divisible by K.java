@@ -1,0 +1,13 @@
+// T.C : O(k)
+// S.C : O(1)
+class Solution {
+    public int smallestRepunitDivByK(int k) {
+        int num = 0;
+        if(k==1) return 1;
+        for(int i=1;i<=k;i++){
+            num = (num*10 + 1)%k;
+            if(num==0) return i;
+        }
+        return -1;
+    }
+}
