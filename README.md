@@ -9,6 +9,7 @@ Contents:
 - [Bit_Magic](https://github.com/Rajj23/DS_Algo/tree/main/Bit_Magic)
 - [DP](https://github.com/Rajj23/DS_Algo/tree/main/DP)
 - [Gready](https://github.com/Rajj23/DS_Algo/tree/main/Gready)
+- [Heap](https://github.com/Rajj23/DS_Algo/tree/main/Heap)
 - [Mathematical](https://github.com/Rajj23/DS_Algo/tree/main/Mathematical)
 - [Sliding Window](https://github.com/Rajj23/DS_Algo/tree/main/Sliding%20Window)
 - [String](https://github.com/Rajj23/DS_Algo/tree/main/String)
