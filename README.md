@@ -8,6 +8,7 @@ Contents:
 - [Arrays](https://github.com/Rajj23/DS_Algo/tree/main/Arrays)
 - [Bit_Magic](https://github.com/Rajj23/DS_Algo/tree/main/Bit_Magic)
 - [DP](https://github.com/Rajj23/DS_Algo/tree/main/DP)
+- [Graph](https://github.com/Rajj23/DS_Algo/tree/main/Graph)
 - [Gready](https://github.com/Rajj23/DS_Algo/tree/main/Gready)
 - [Heap](https://github.com/Rajj23/DS_Algo/tree/main/Heap)
 - [Mathematical](https://github.com/Rajj23/DS_Algo/tree/main/Mathematical)
