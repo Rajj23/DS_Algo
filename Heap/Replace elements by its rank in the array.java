@@ -98,7 +98,7 @@ class Solution {
     }
 }
 
-// Approach 2
+// Approach 2   
 // T.C: O(nlogn)
 // S.C: O(n)
 class Solution {
