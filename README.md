@@ -1,6 +1,6 @@
 DS_Algo – My Data Structures & Algorithms Practice (Java)
 
-This repository contains my DSA and LeetCode solutions written in Java.
+This repository contains my DSA and LeetCode solutions written in Java and C++.
 I am maintaining this repo to improve my problem-solving skills, revise concepts,
 and prepare for technical interviews.
 
