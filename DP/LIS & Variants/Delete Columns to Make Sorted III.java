@@ -1,0 +1,32 @@
+// T.C: O(cols*cols*rows)
+// S.C: O(cols)
+class Solution {
+    public int minDeletionSize(String[] strs) {
+        int rows = strs.length;
+        int cols = strs[0].length();
+
+        int[] dp = new int[cols];
+        Arrays.fill(dp,1);
+
+        int LIS = 1;
+        
+        for(int i=0;i<cols;i++){
+            for(int j=0;j<i;j++){
+
+                boolean safe = true;
+                for(int k=0;k<rows;k++){
+                    if(strs[k].charAt(j)>strs[k].charAt(i)){
+                        safe = false;
+                        break;
+                    }
+                }
+                if(safe){
+                    dp[i] = Math.max(dp[i],dp[j]+1);
+                }
+            }
+            LIS = Math.max(LIS, dp[i]);
+        }
+
+        return cols-LIS;
+    }
+}
