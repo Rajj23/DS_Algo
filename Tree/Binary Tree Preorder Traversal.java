@@ -15,6 +15,7 @@
  */
 
 
+// Approach: 1 (Recursive)
 //T.C: O(n)
 //S.C: O(n)
 class Solution {
@@ -31,5 +32,32 @@ class Solution {
         list.add(root.val);
         preOrder(root.left,list);
         preOrder(root.right,list);
+    }
+}
+
+
+// Approach: 2 (Iterative)
+//T.C: O(n)
+//S.C: O(n)
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        Stack<TreeNode> st = new Stack<>();
+        if(root==null){
+            return result;
+        }
+
+        st.push(root);
+        while(!st.isEmpty()){
+            root = st.pop();
+            result.add(root.val);
+            if(root.right!=null){
+                st.push(root.right);
+            }
+            if(root.left!=null){
+                st.push(root.left);
+            }
+        }
+        return result;
     }
 }
