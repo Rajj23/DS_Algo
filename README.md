@@ -6,6 +6,7 @@ and prepare for technical interviews.
 
 Contents:
 - [Arrays](https://github.com/Rajj23/DS_Algo/tree/main/Arrays)
+- [Backtracking](https://github.com/Rajj23/DS_Algo/tree/main/Backtracking)
 - [Bit_Magic](https://github.com/Rajj23/DS_Algo/tree/main/Bit_Magic)
 - [DP](https://github.com/Rajj23/DS_Algo/tree/main/DP)
 - [Graph](https://github.com/Rajj23/DS_Algo/tree/main/Graph)
