@@ -1,3 +1,6 @@
+// Approach 1 (using level order and maintaining height)
+// T.C: O(n)
+// S.C: O(n)
 class Solution {
     class Pair{
         TreeNode node;
@@ -33,5 +36,28 @@ class Solution {
         }
 
         return list;
+    }
+}
+
+
+// Approach 2 (using pre order and maintaining height)
+// T.C: O(n)
+// S.C: O(n)
+class Solution {
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        solve(root, list, 0);
+        return list;
+    }
+
+    private void solve(TreeNode root, List<Integer> list, int level){
+        if(root == null) return;
+
+        if(list.size() == level){
+            list.add(root.val);
+        }
+
+        solve(root.right, list, level+1);
+        solve(root.left, list, level+1);
     }
 }
