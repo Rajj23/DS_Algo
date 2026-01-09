@@ -1,5 +1,6 @@
-// T.C: O(n)
-// S.C: O(maxD)
+// Approach-1 (Using 2 Pass Solution and LCA code)
+// T.C : O(2*n) ~= O(n)
+// S.C : O(maxDepth) System stack space
 class Solution {
     Map<Integer,Integer> mp = new HashMap<>();
     int maxD = 0;
@@ -34,5 +35,42 @@ class Solution {
         depth(root, 0);
 
         return LCA(root);
+    }
+}
+
+
+// Approach-2 (Using 1 Pass Solution)
+// T.C : O(n)
+// S.C : O(maxDepth) System stack space
+class Solution {
+    class Pair{
+        int depth;
+        TreeNode node;
+
+        Pair(int depth, TreeNode node){
+            this.depth = depth;
+            this.node = node;
+        }
+    }
+    private Pair solve(TreeNode root){
+        if(root == null){
+            return new Pair(0,null);
+        }
+
+        Pair l = solve(root.left);
+        Pair r = solve(root.right);
+
+        if(l.depth == r.depth){
+            return new Pair(l.depth+1,root);
+        }
+        else if(l.depth > r.depth){
+            return new Pair(l.depth+1, l.node);
+        }
+        else{
+            return new Pair(r.depth+1, r.node);
+        }
+    }
+    public TreeNode lcaDeepestLeaves(TreeNode root) {
+        return solve(root).node;
     }
 }
