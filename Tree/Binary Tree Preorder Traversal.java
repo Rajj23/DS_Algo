@@ -61,3 +61,39 @@ class Solution {
         return result;
     }
 }
+
+
+
+// Approach 3(Morris Traversal)
+// T.C: O(n)
+// S.C: O(1)
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root){
+        List<Integer> result = new ArrayList<>();
+        TreeNode curr = root;
+
+        while(curr != null){
+            if(curr.left == null){
+                result.add(curr.val);
+                curr = curr.right;
+            }
+            else{
+                TreeNode leftChild = curr.left;
+
+                while(leftChild.right != null && leftChild.right != curr){
+                    leftChild = leftChild.right;
+                }
+
+                if(leftChild.right == null){
+                    leftChild.right = curr;
+                    result.add(curr.val);
+                    curr = curr.left;
+                }else{
+                    leftChild.right = null;
+                    curr = curr.right;
+                }
+            }
+        }
+        return result;
+    }
+}
