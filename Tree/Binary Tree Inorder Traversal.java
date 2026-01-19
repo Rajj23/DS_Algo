@@ -63,3 +63,37 @@ class Solution {
         return result;
     }
 }
+
+
+// Approach 3(Morris Traversal)
+// T.C: O(n)
+// S.C: O(1)
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        TreeNode curr = root;
+
+        while(curr != null){
+
+            if(curr.left == null){
+                result.add(curr.val);
+                curr = curr.right;
+            }
+            else{
+                TreeNode leftChild = curr.left;
+
+                while(leftChild.right != null){
+                    leftChild = leftChild.right;
+                }
+
+                leftChild.right = curr;
+
+                TreeNode temp = curr;
+                curr = curr.left;
+                temp.left = null;
+            }
+        }
+
+        return result;
+    }
+}
