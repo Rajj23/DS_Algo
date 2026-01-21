@@ -1,3 +1,5 @@
+// T.C: O(m)
+// S.C: O(1)
 class Solution {
     public boolean isLongPressedName(String name, String typed) {
         int i = 0;
