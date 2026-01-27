@@ -1,3 +1,5 @@
+// T.C: O(n)
+// S.C: O(h)
 class BSTIterator {
     Stack<TreeNode> st;
     public BSTIterator(TreeNode root) {
