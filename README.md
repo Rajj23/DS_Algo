@@ -15,6 +15,7 @@ Contents:
 - [HashMap](https://github.com/Rajj23/DS_Algo/tree/main/HashMap)
 - [HashSet](https://github.com/Rajj23/DS_Algo/tree/main/HashSet)
 - [Mathematical](https://github.com/Rajj23/DS_Algo/tree/main/Mathematical)
+- [Recursion](https://github.com/Rajj23/DS_Algo/tree/main/Recursion)
 - [Sliding Window](https://github.com/Rajj23/DS_Algo/tree/main/Sliding%20Window)
 - [Segment_Tree](https://github.com/Rajj23/DS_Algo/tree/main/Segment%20Tree)
 - [Stack](https://github.com/Rajj23/DS_Algo/tree/main/Stack)
