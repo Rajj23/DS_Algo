@@ -45,3 +45,56 @@ class Solution {
         return false;
     }
 }
+
+
+// Time: O(V + E)
+// Space: O(V + E)
+class Solution {
+    public boolean isCyclic(int V, int[][] edges){
+        List<List<Integer>> adj = new ArrayList<>();
+        
+        for(int i = 0; i < V; i++){
+            adj.add(new ArrayList<>());
+        }
+        
+        for(int[] e : edges){
+            int u = e[0];
+            int v = e[1];
+            
+            adj.get(u).add(v);
+        }
+        
+        int[] indegree = new int[V];
+        
+        for(int u = 0; u < V; u++){
+            for(int v : adj.get(u)){
+                indegree[v]++;
+            }
+        }
+        
+        Queue<Integer> q = new ArrayDeque<>();
+        
+        for(int i = 0; i < V; i++){
+            if(indegree[i] == 0){
+                q.add(i);
+            }
+        }
+        
+        int count = 0;
+        
+        while(!q.isEmpty()){
+            int u = q.poll();
+            count++;
+            
+            for(int e : adj.get(u)){
+                indegree[e]--;
+                
+                if(indegree[e] == 0){
+                    q.add(e);
+                }
+            }
+        }
+        
+        return count != V;
+    }
+}
