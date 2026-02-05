@@ -50,3 +50,29 @@ class Solution {
         return new int[]{};
     }
 }
+
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        int n = prices.length;
+        int[][] t = new int[n + 1][2];
+
+        for (int idx = n - 1; idx >= 0; idx--) {
+            for (int buyed = 0; buyed < 2; buyed++) {
+                if (buyed == 1) {
+                    int take = t[idx+1][0] - prices[idx];
+                    int notTake = t[idx+1][1];
+
+                    t[idx][buyed] = Math.max(take, notTake);
+                } else {
+                    int buy = t[idx+1][1] + prices[idx];
+                    int notBuy = t[idx+1][0];
+
+                    t[idx][buyed] = Math.max(buy, notBuy);
+                }
+            }
+        }
+
+        return t[0][1];
+    }
+}
