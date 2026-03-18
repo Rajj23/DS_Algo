@@ -28,7 +28,9 @@ class Solution {
     }
 }
 
-
+//Approach-2 (Without modifying the given input)
+//T.C : (m * nlogn)
+//S.C : O(m*n)
 class Solution {
     public int largestSubmatrix(int[][] matrix) {
         int m = matrix.length;
@@ -57,6 +59,59 @@ class Solution {
                 maxArea = Math.max(maxArea, base * height);
             }
             prevRow = currRow;
+        }
+        return maxArea;
+    }
+}
+
+//Approach-3 (Without sorting)
+//T.C : O(m*n)
+//S.C : O(m*n)
+class Solution {
+    class Pair{
+        int height;
+        int col;
+
+        public Pair(int height, int col){
+            this.height = height;
+            this.col = col;
+        }
+    }
+    public int largestSubmatrix(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int maxArea = 0;
+
+        List<Pair> prevHeights = new ArrayList<>();
+
+        for(int row = 0; row < m; row++){
+            
+            List<Pair> currHeights = new ArrayList<>();
+            boolean[] seen = new boolean[n];
+
+            for(Pair  prev : prevHeights){
+                int height = prev.height;
+                int col = prev.col;
+
+                if(matrix[row][col] == 1){
+                    currHeights.add(new Pair(height+1, col));
+                    seen[col] = true;
+                }
+            }
+
+            for(int col = 0; col < n; col++){
+                if(!seen[col] && matrix[row][col] == 1){
+                    currHeights.add(new Pair(1, col));
+                }
+            }
+
+            for(int i = 0; i < currHeights.size(); i++){
+                int H = currHeights.get(i).height;
+                int B = i+1;
+
+                maxArea = Math.max(maxArea, B*H);
+            }
+            prevHeights = currHeights;
         }
         return maxArea;
     }
