@@ -71,3 +71,45 @@ class Solution {
         return Math.max(result, t[n]);
     }
 }
+
+
+// Approach 3: constant space
+// T.C: O(n)
+// S.C: O(1)
+class Solution {
+    public int rob(int[] nums) {
+        int n = nums.length;
+        
+        if(n == 1) return nums[0];
+        if(n == 2) return Math.max(nums[0], nums[1]);
+
+        int prevPrev = 0;
+        int prev = nums[0];
+
+        for(int i = 2; i <= n-1; i++){
+            int take = nums[i-1] + prevPrev;
+            int skip = prev;
+
+            int temp = Math.max(take, skip);
+
+            prevPrev = prev;
+            prev = temp;
+        }
+
+        int result = prev;
+
+        prevPrev = 0;
+        prev = nums[1];
+
+        for(int i = 3; i <= n; i++){
+            int take = nums[i-1] + prevPrev;
+            int skip = prev;
+
+            int temp = Math.max(take, skip);
+            prevPrev = prev;
+            prev = temp;
+        }
+
+        return Math.max(result, prev);
+    }
+}
