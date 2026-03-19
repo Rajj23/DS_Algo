@@ -1,3 +1,4 @@
+// Approach 1: rec + memo
 // T.C: O(n)
 // S.C: O(n)
 class Solution {
@@ -22,7 +23,7 @@ class Solution {
 }
 
 
-
+// Approach 2: bottom-up
 // T.C: O(n)
 // S.C: O(n)
 class Solution {
@@ -40,5 +41,32 @@ class Solution {
         }
 
         return t[0];
+    }
+}
+
+// Approach 3: constant space
+// T.C: O(n)
+// S.C: O(1)
+class Solution {
+   
+    public int rob(int[] nums) {
+        int n = nums.length;
+        
+        if(n == 1) return nums[0];
+        
+        int prePrev = 0;
+        int prev = nums[0];
+
+        for(int i = 2; i <= n; i++){
+            int take = nums[i-1] + prePrev;
+            int skip = prev;
+
+            int temp = Math.max(take, skip);
+
+            prePrev = prev;
+            prev = temp;
+        }
+
+        return prev;
     }
 }
