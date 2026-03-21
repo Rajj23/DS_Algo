@@ -51,3 +51,42 @@ class Solution{
         return ans;
     }
 }
+
+//Approach-1 (TopDown: Recur+Memo) 
+//T.C : O(n*n)
+//S.C : O(n*n)
+class Solution {
+    int[][] t;
+    final int OFFSET = 10001;
+    int solve(int idx, int[] nums, int prev){
+        if(idx == nums.length) return 0;
+
+        // int prevIdx = OFFSET + prev;
+
+        if(t[idx][prev] != Integer.MIN_VALUE){
+            return t[idx][prev];
+        }
+        
+        int n = nums.length;
+
+        int take = 0;
+
+        if(prev == n || nums[idx] > nums[prev]){
+            take = 1 + solve(idx+1, nums, idx);
+        }
+
+        int skip = solve(idx+1, nums, prev);
+
+        return t[idx][prev] = Math.max(take, skip);
+    }
+    public int lengthOfLIS(int[] nums) {
+        int n = nums.length;
+        t = new int[n][n+1];
+
+        for(int i = 0; i < n; i++){
+            Arrays.fill(t[i], Integer.MIN_VALUE);
+        }
+
+        return solve(0, nums, n);
+    }
+}
