@@ -90,3 +90,42 @@ class Solution {
         return solve(0, nums, n);
     }
 }
+
+
+//Approach-4 (Using concept of Patience Sorting (O(nlogn))
+//T.C : O(nlogn)
+//S.C : O(n)
+class Solution {
+    int binarySearch(List<Integer> sorted, int tar){
+        int l = 0, r = sorted.size() - 1;
+
+        while(l <= r){
+            int mid = l + (r-l) / 2;
+
+            if(sorted.get(mid) < tar){
+                l = mid+1;
+            }
+            else{
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+    public int lengthOfLIS(int[] nums) {
+        List<Integer> sorted = new ArrayList<>();
+        int n = nums.length;
+
+        for(int i = 0; i < n; i++){
+            int it = binarySearch(sorted, nums[i]);
+
+            if(it == sorted.size()){
+                sorted.add(nums[i]);
+            }
+            else{
+                sorted.set(it, nums[i]);
+            }
+        }
+
+        return sorted.size();
+    }
+}
