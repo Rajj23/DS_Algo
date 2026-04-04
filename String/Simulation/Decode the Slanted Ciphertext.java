@@ -45,3 +45,33 @@ class Solution {
         return sb.toString();
     }
 }
+
+
+//Approach-2 (Without extra space)
+//T.C : O(l), l = encodedText.length()
+//S.C : O(1)
+// T.C : O(l)
+// S.C : O(1)
+class Solution {
+    public String decodeCiphertext(String encodedText, int rows) {
+        int l = encodedText.length();
+
+        int cols = l / rows;
+
+        StringBuilder originalText = new StringBuilder();
+
+        for(int col = 0; col <= cols; col++){
+            for(int j = col; j < l; j += (cols+1)){
+                originalText.append(encodedText.charAt(j));
+            }
+        }
+
+        int idx = originalText.length()-1;
+        while (originalText.length() > 0 && 
+               originalText.charAt(originalText.length() - 1) == ' ') {
+            originalText.deleteCharAt(originalText.length() - 1);
+        }
+
+        return originalText.toString();
+    }
+}
