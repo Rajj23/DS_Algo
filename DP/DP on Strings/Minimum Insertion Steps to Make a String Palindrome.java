@@ -57,3 +57,29 @@ class Solution {
         return t[0][n-1];
     }
 }
+
+
+// Approach: blue-print
+// T.C: O(n^2)
+// S.C: OO(n^2)
+class Solution {
+    public int minInsertions(String s) {
+        int n = s.length();
+
+        int[][] t = new int[n][n];
+
+        for(int l = 2; l <= n; l++){
+            for(int i = 0; i+l-1 < n; i++){
+                int j = i + l - 1;
+
+                if(s.charAt(i) == s.charAt(j)){
+                    t[i][j] = t[i+1][j-1];
+                }
+                else{
+                    t[i][j] = 1 + Math.min(t[i+1][j], t[i][j-1]);
+                }
+            }
+        }
+        return t[0][n-1];
+    }
+}
