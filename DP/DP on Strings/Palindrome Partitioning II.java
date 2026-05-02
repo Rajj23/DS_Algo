@@ -67,3 +67,51 @@ class Solution {
         return t[0]-1;
     }
 }
+
+
+
+//Approach-3 (Blue Print)
+//T.C : O(n*n)
+//S.C : O(n*n)
+class Solution {
+
+    public int minCut(String s) {
+        int n = s.length();
+        boolean[][] t = new boolean[n][n];
+
+        for(int i = 0; i < n; i++){
+            t[i][i] = true;
+        }
+
+        for(int l = 2; l <= n; l++){
+            for(int i = 0; i < n+1-l; i++){
+                int j = i + l - 1;
+
+                if(l == 2){
+                    t[i][j] = s.charAt(i) == s.charAt(j);
+                }
+                else{
+                    t[i][j] = (s.charAt(i) == s.charAt(j) && t[i+1][j-1]);
+                }
+            }
+        }
+
+        int[] dp = new int[n];
+
+        for(int i = 0; i < n; i++){
+            if(t[0][i]){
+                dp[i] = 0;
+            }
+            else{
+                dp[i] = Integer.MAX_VALUE;
+
+                for(int k = 0; k < i; k++){
+                    if(t[k+1][i] == true && dp[i] > 1 + dp[k]){
+                        dp[i] = 1 + dp[k];
+                    }
+                }
+            }
+        }
+        return dp[n-1];
+    }
+}
