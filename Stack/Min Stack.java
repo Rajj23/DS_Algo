@@ -1,3 +1,4 @@
+// Approach: Using 2 stack
 // T.C: O(1)
 // S.C: O(n)
 class MinStack {
@@ -39,3 +40,35 @@ class MinStack {
     }
 }
 
+// Approach: Using 1 stack
+// T.C: O(1)
+// S.C: O(n)
+class MinStack {
+    Stack<int[]> st;
+    public MinStack() {
+        st = new Stack<>();
+    }
+    
+    public void push(int val) {
+        int min = val;
+        if(!st.isEmpty()){
+            int[] temp = st.peek();
+            min = Math.min(min, temp[1]);
+        }
+        st.push(new int[]{val, min});
+    }
+    
+    public void pop() {
+        st.pop();
+    }
+    
+    public int top() {
+        int[] temp = st.peek();
+        return temp[0];
+    }
+    
+    public int getMin() {
+        int[] temp = st.peek();
+        return temp[1];
+    }
+}
