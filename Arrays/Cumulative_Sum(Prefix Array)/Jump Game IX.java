@@ -1,3 +1,6 @@
+//Approach (Using prefix array)
+//T.C : O(n)
+//S.C : O(n)
 class Solution {
     public int[] maxValue(int[] nums) {
         int n = nums.length;
