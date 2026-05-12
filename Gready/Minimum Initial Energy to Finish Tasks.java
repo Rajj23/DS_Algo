@@ -1,6 +1,50 @@
 // T.C: O(nlog(n))
 // S.C: O(1)
 class Solution {
+    boolean isValid(int[][] tasks, int energy){
+        for(int i = 0; i < tasks.length; i++){
+            if(energy < tasks[i][1]){
+                return false;
+            }
+            else{
+                energy -= tasks[i][0];
+            }
+        }
+        return true;
+    }
+    public int minimumEffort(int[][] tasks) {
+        Arrays.sort(tasks, (a, b)->{
+            int diff1 = a[1] - a[0];
+            int diff2 = b[1] - b[0];
+
+            if(diff1 == diff2){
+                return Integer.compare(a[0], b[0]);
+            }
+            return Integer.compare(diff2, diff1);
+        });
+
+         int low = 1, high = (int)1e9;
+
+        int ans = -1;
+
+        while(low <= high){
+            int mid = low + (high-low)/2;
+            if(isValid(tasks, mid)){
+                ans = mid;
+                high = mid-1;
+            }
+            else{
+                low = mid+1;
+            }
+        }
+        return ans;
+    }
+}
+
+
+// T.C: O(nlog(n))
+// S.C: O(1)
+class Solution {
     public int minimumEffort(int[][] tasks) {
         Arrays.sort(tasks, (a, b)->{
             int diff1 = a[1] - a[0];
