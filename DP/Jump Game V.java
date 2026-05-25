@@ -89,3 +89,5 @@ class Solution {
         return maxCountIndices;
     }
 }
+
+There you go New feature is added.
