@@ -1,3 +1,6 @@
+//Approach (Using Binary Lifting)
+//T.C : O(Q * log(n)) , Q = number of queries , n = number of nodes
+//S.C : O(n * log(n)) to store events in map
 class TreeAncestor {
     int[][] ancestorTable;
     int rows;
