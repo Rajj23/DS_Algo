@@ -1,5 +1,5 @@
-// T.C: O(n)
-// S.C: O(n)
+// T.C: O(2^n)
+// S.C: O(2^n)
 class Solution {
     public String processStr(String s) {
         StringBuilder sb = new StringBuilder();
