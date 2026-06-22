@@ -1,5 +1,6 @@
 //T.C : O(h^2 + v^2 + hlogh + vlogv), h = hFences.size(), v = vFences.size()
 //S.C : O(h+v)
+import java.util.*;
 class Solution {
     public int maximizeSquareArea(int m, int n, int[] hFences, int[] vFences) {
         int M = 1_000_000_007;
@@ -43,6 +44,9 @@ class Solution {
             }
         }
         long result = (long)maxSize * maxSize;
+
+        List<Integer> list = new ArrayList<>();
+        list.remove
 
         return maxSize == 0 ? -1 : (int) (result % M);
     }
