@@ -1,3 +1,5 @@
+// T.C: O(log(n))
+// S.C: O(1)
 class Solution {
     public List<Integer> sequentialDigits(int low, int high) {
         List<Integer> result = new ArrayList<>();
